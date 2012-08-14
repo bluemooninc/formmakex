@@ -1,0 +1,130 @@
+<table id="formmakex-list">
+	<thead>
+		<tr>
+			<th><{$formmakex.langs.col_data}></th>
+			<th><{$formmakex.langs.col_results}></th>
+			<th><{$formmakex.langs.col_control}></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr
+			class="formmakex-list-form-status-<{$formmakex.content.form.status}> formmakex-list-form-public-<{$formmakex.content.form.public|lower}> formmakex-list-form-<{cycle values="odd,even"}>
+			">
+			<td>
+				<ul class="formmakex-list-col-data">
+					<li><span><{$formmakex.langs.form_title}></span><a
+						href='webform.php?name=<{$formmakex.content.form.name}>'><{$formmakex.content.form.title}></a></li>
+					<li><span><{$formmakex.langs.form_subtitle}></span><{$formmakex.content.form.subtitle}></li>
+					<li><span>ID</span><{$formmakex.content.form.id}></li>
+					<li><span><{$formmakex.langs.form_name}></span><{$formmakex.content.form.name}></li>
+					<li><span><{$formmakex.langs.form_owner}></span><a
+						href="<{$xoops_url}>/userinfo.php?uid=<{$formmakex.content.form.uid}>"
+						taget="_top"><{$formmakex.content.form.uname}></a></li>
+					<li><span><{$formmakex.langs.form_updatedat}></span><{$formmakex.content.form.last_update_m|replace:'-':'/'}></li>
+					<li><span><{$formmakex.langs.form_submitted}></span> <{if
+						$formmakex.content.form.submitted}> <img src="images/checked.png"
+						alt="Checked" /><{$formmakex.content.form.submitted|date_format:'%Y/%m/%d
+						%H:%M'}> <{else}> -- <{/if}></li>
+				</ul>
+			</td>
+			<td nowrap="nowrap"><{if $formmakex.content.form.viewbygroup }>
+				<ul class="formmakex-list-col-results">
+					<li><span><{$formmakex.langs.col_results_respondents}></span><{$formmakex.content.form.resp}></li>
+					<li><span><{$formmakex.langs.col_results_analyze}></span> <a
+						href="manage.php?where=results&sid=<{$formmakex.content.form.id}>"
+						target="_top"><{$formmakex.langs.col_results_spreadsheet}></a> <!--<a href="manage.php?where=crossset&sid=<{$formmakex.content.form.id}>" target="_top"><{$formmakex.langs.col_results_cross}></a>-->
+					</li>
+					<li><span><{$formmakex.langs.col_results_download}></span> <a
+						href="manage.php?where=download&type=csv&sid=<{$formmakex.content.form.id}>"
+						target="_blank">CSV</a> <!--<a href="manage.php?where=download&type=html&sid=<{$formmakex.content.form.id}>" target="_blank">HTML</a>-->
+					</li>
+				</ul> <{/if}>
+			</td>
+			<td nowrap="nowrap"><{if $formmakex.content.form.editbyGroup }>
+				<ul class="formmakex-list-col-control">
+					<li><span><{$formmakex.langs.col_control_status}></span>
+						<{$formmakex.content.form.status_desc}></li>
+					<!--
+					<li>
+						<span><{$formmakex.langs.col_control_access}></span>
+						<{if $formmakex.content.form.public == 'Y'}><{$formmakex.langs.col_control_access_public}><{else}><{$formmakex.langs.col_control_access_limited}><{/if}>
+					</li>
+					<li>
+						<span><{$formmakex.langs.col_control_modify}></span>
+						<{* Access *}>
+
+						<{if $formmakex.content.form.status!=2 && $formmakex.content.form.status!=4}>
+							<form action="manage.php" method="post">
+							<input type="hidden" name="sid" value="<{$formmakex.content.form.id}>" />
+							<input type="hidden" name="where" value="access" />
+							<input type="hidden" name="op" value="<{if $formmakex.content.form.public == 'Y'}>v<{else}>p<{/if}>" />
+							<button type="submit">
+							<{if $formmakex.content.form.public == 'Y'}>
+								<{$formmakex.langs.col_control_access_2limited}>
+							<{else}>
+								<{$formmakex.langs.col_control_access_2public}>
+							<{/if}>
+							</button>
+							</form>
+							<{if $formmakex.content.form.public == "N"}>
+								<form action="manage.php" method="post">
+								<input type="hidden" name="sid" value="<{$formmakex.content.form.id}>" />
+								<input type="hidden" name="where" value="access" />
+								<button type="submit"><{$formmakex.langs.col_control_access_setperm}></button>
+								</form>
+							<{/if}>
+						<{/if}>
+-->
+					<{* Status *}>
+					<!-- STATUS_ACTIVE=1,STATUS_DONE=2,STATUS_DELETED=4,STATUS_TEST=8 -->
+
+					<{if $formmakex.content.form.status!=1 &&
+					$formmakex.content.form.status!=4 }>
+					<form action="manage.php" method="post">
+						<input type="hidden" name="sid"
+							value="<{$formmakex.content.form.id}>" /> <input type="hidden"
+							name="where" value="status" /> <{if
+						$formmakex.content.form.status==2 }>
+						<!-- Re Active -->
+						<input type="hidden" name="op" value="r" /> <{else}> <input
+							type="hidden" name="op" value="a" /> <{/if}>
+						<button type="submit"><{$smarty.const._MB_Activate}></button>
+					</form>
+					<{/if}> <{if $formmakex.content.form.status!=2 &&
+					$formmakex.content.form.status!=4}>
+					<form action="manage.php" method="post">
+						<input type="hidden" name="sid"
+							value="<{$formmakex.content.form.id}>" /> <input type="hidden"
+							name="where" value="status" /> <input type="hidden" name="op"
+							value="e" />
+						<button type="submit"><{$smarty.const._MB_End}></button>
+					</form>
+					<form action="manage.php" method="post">
+						<input type="hidden" name="sid"
+							value="<{$formmakex.content.form.id}>" /> <input type="hidden"
+							name="where" value="status" /> <input type="hidden" name="op"
+							value="d" />
+						<button type="submit"><{$smarty.const._MB_Archive}></button>
+					</form>
+					<{/if}> <{* Edit *}> <{if $formmakex.content.form.status!=2 &&
+					$formmakex.content.form.status!=4}>
+					<form action="manage.php" method="post">
+						<input type="hidden" name="newid"
+							value="<{$formmakex.content.form.id}>" /> <input type="hidden"
+							name="where" value="tab" />
+						<button type="submit"><{$formmakex.langs.col_control_edit}></button>
+					</form>
+					<{/if}> <{* Copy *}>
+
+					<form action="manage.php" method="post">
+						<input type="hidden" name="sid"
+							value="<{$formmakex.content.form.id}>" /> <input type="hidden"
+							name="where" value="copy" />
+						<button type="submit"><{$formmakex.langs.col_control_copy}></button>
+					</form>
+					</li>
+				</ul> <{/if}>
+			</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,115 @@
+<link href="<{$xoops_url}>/modules/formmakex/tempaltes/style_bmsrvy.css"
+	media="screen,tv" type="text/css" rel="stylesheet" />
+
+<{$formmakex.content.error}>
+
+<div id="formmakex-form-contents-wrap" class="formmakex-contents-wrap">
+	<div class="formmakex-contents-wrap-innr">
+		<div class="formmakex-contents-head">
+			<h1 id="formmakex-form-title">
+				<span><{$formmakex.content.form.title}></span>
+			</h1>
+			<p id="formmakex-form-subtitle">
+				<span><{$formmakex.content.form.subtitle}></span>
+			</p>
+		</div>
+		<div class="formmakex-contents-body">
+			<{if $formmakex.content.form.name}>
+			<form name="<{$formmakex.content.form.name}>"
+				action="<{$formmakex.content.form.action}>"
+				enctype="<{$formmakex.content.form.enctype}>" method="post">
+				<{foreach from=$formmakex.content.hiddens key=hkey item=hitem}> <input
+					type="hidden" name="<{$hkey}>" value="<{$hitem}>" /> <{/foreach}>
+				<{/if}>
+				<div id="formmakex-form-infos">
+					<{if $formmakex.content.form.info }>
+					<div id="formmakex-form-info"
+						class="formmakex-form-infos<{if !$formmakex.content.form.has_required && !$formmakex.content.form.message}> formmakex-form-infos-last<{/if}>"><{$formmakex.content.form.info}></div>
+					<{/if}> <{if $formmakex.content.form.has_required}>
+					<div id="formmakex-form-hasrequired"
+						class="formmakex-form-infos<{if !$formmakex.content.form.message}> formmakex-form-infos-last<{/if}>"><{$formmakex.content.form.has_required}></div>
+					<{/if}> <{if $formmakex.content.form.message}>
+					<div id="formmakex-form-message"
+						class="formmakex-form-infos formmakex-form-infos-last"><{$formmakex.content.form.message}></div>
+					<{/if}>
+				</div>
+				<div id="formmakex-form-questions">
+					<{foreach from=$formmakex.content.questions key=qkey item=qitem}>
+					<{if $qitem.type_id < 99}>
+					<div
+						class="formmakex-form-question formmakex-form-question-type-<{$qitem.type_id}> <{if $qitem.required == 'Y'}>formmakex-form-question-required<{/if}>">
+						<div class="formmakex-form-question-content">
+							<span class="formmakex-form-question-number"><{$qitem.qnum}></span>
+							<span><{$qitem.content}></span> <{if $qitem.required == 'Y'}><span
+								class="formmakex-form-question-asterisk">*</span><{/if}>
+						</div>
+						<div class="formmakex-form-question-inputs">
+							<{if $qitem.type_id == 8}>
+							<table class="formmakex-form-question-rate-table">
+								<thead>
+									<tr>
+										<td></td>
+										<td></td> <{foreach from=$qitem.th_title item=thTag}>
+										<td class="formmakex-form-question-rate-col-1"><{$thTag}></td>
+										<{/foreach}>
+										<!--<td class="formmakex-form-question-rate-col-2">2</td>
+												<td class="formmakex-form-question-rate-col-3">3</td>
+												<td class="formmakex-form-question-rate-col-4">4</td>
+												<td class="formmakex-form-question-rate-col-5">5</td>-->
+									</tr>
+								</thead>
+								<tbody>
+									<{foreach from=$qitem.htmlTag item=trTag}>
+									<tr class="formmakex-form-question-rate-row-<{cycle values="odd,even"}>
+										"> <{foreach from=$trTag item=tdTag name=tdTag}> <{if
+										$smarty.foreach.tdTag.first}>
+										<td class="formmakex-form-question-rate-col-label"><{$tdTag.value}></td>
+										<{else}> <{if $tdTag.type == 'radio'}>
+										<td class="formmakex-form-question-rate-col-<{$tdTag.value}>">
+											<label> <input type="radio" name="<{$tdTag.name}>"
+												value="<{$tdTag.value}>"<{if $tdTag.checked}>
+												checked="checked"<{/if}> />
+										</label>
+										</td> <{elseif $tdTag.type == 'button'}>
+										<td>
+											<button type="button" name="<{$tdTag.name}>"<{if
+												$tdTag.onclick}>
+												onclick="<{$tdTag.onclick}>"<{/if}>><{$tdTag.value}></button>
+										</td> <{/if}> <{/if}> <{/foreach}>
+									</tr>
+									<{/foreach}>
+								</tbody>
+							</table>
+							<{else}> <{include file="db:formmakex_form_forms.html"}> <{/if}>
+						</div>
+					</div>
+					<{else}>
+					<div class="formmakex-form-notquestion">
+						<div><{$qitem.content}></div>
+					</div>
+					<{/if}> <{/foreach}>
+				</div>
+				<!--<{if !$preview.button}>-->
+				<div id="formmakex-form-buttons">
+					<{if $formmakex.content.buttons.prev}> <input type="submit"
+						name="<{$formmakex.content.buttons.prev.name}>"
+						value="<{$formmakex.content.buttons.prev.label}>" /> <{/if}> <{if
+					$formmakex.content.buttons.next}> <input type="submit"
+						name="<{$formmakex.content.buttons.next.name}>"
+						value="<{$formmakex.content.buttons.next.label}>" /> <{/if}> <{if
+					$formmakex.content.buttons.save}> <input type="submit"
+						name="<{$formmakex.content.buttons.save.name}>"
+						value="<{$formmakex.content.buttons.save.label}>" /> <{/if}> <{if
+					$formmakex.content.buttons.submit}> <input type="submit"
+						name="<{$formmakex.content.buttons.submit.name}>"
+						value="<{$formmakex.content.buttons.submit.label}>" /> <{/if}>
+				</div>
+				<!--<{/if}>-->
+				<{if $formmakex.content.form.name}>
+			</form>
+			<{/if}>
+		</div>
+		<!--div class="formmakex-contents-foot">
+		</div-->
+	</div>
+</div>

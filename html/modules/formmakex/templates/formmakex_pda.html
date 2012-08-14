@@ -1,0 +1,78 @@
+
+<div>
+	<font color="#333333" size="small"><img
+		src="images/mobile_logo_360x60.gif" alt="アムネスティ・インターナショナル楠倍" /></font>
+	<h1><{$formmakex.content.form.title}></h1>
+	<{if $formmakex.content.form.subtitle}>
+	<p><{$formmakex.content.form.subtitle}></p>
+	<{/if}>
+	<hr />
+	<{if $formmakex.content.form.info }>
+	<p><{$formmakex.content.form.info}></p>
+	<{/if}> <{if $formmakex.content.form.has_required}>
+	<p><{$formmakex.content.form.has_required}></p>
+	<{/if}> <{if $formmakex.content.form.message}>
+	<p><{$formmakex.content.form.message}></p>
+	<{/if}>
+	<hr />
+	<form name="<{$formmakex.content.form.name}>"
+		action="<{$formmakex.content.form.action}>"
+		enctype="<{$formmakex.content.form.enctype}>" method="post">
+		<{foreach from=$formmakex.content.hiddens key=hkey item=hitem}> <input
+			type="hidden" name="<{$hkey}>" value="<{$hitem}>" /> <{/foreach}>
+		<{foreach from=$formmakex.content.questions key=qkey item=qitem}> <{if
+		$qitem.type_id < 99}>
+		<div>
+			<h2>
+				<{$qitem.qnum}> <{$qitem.content}> <{if $qitem.required == 'Y'}><font
+					color="#ff0000">*</font><{/if}>
+			</h2>
+			<div>
+				<{if $qitem.type_id == 8}>
+				<table>
+					<thead>
+						<tr>
+							<td></td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+							<td>5</td>
+						</tr>
+					</thead>
+					<tbody>
+						<{foreach from=$qitem.htmlTag item=trTag}>
+						<tr
+							class="formmakex-questionnaire-question-table-row-<{cycle values="odd,even"}>
+							"> <{foreach from=$trTag item=tdTag name=tdTag}> <{if
+							$smarty.foreach.tdTag.first}>
+							<td><{$tdTag.value}></td> <{else}>
+							<td><{if $tdTag.type == 'radio'}> <label> <input
+									type="radio" name="<{$tdTag.name}>" value="<{$tdTag.value}>"<{if
+									$tdTag.checked}> checked="checked"<{/if}> />
+							</label> <{/if}>
+							</td> <{/if}> <{/foreach}>
+						</tr>
+						<{/foreach}>
+					</tbody>
+				</table>
+				<{else}> <{include file="db:formmakex_form_forms.html"}> <{/if}>
+			</div>
+			<{else}>
+			<div class="formmakex-questionnaire-notquestion"><{$qitem.content}></div>
+			<{/if}> <{/foreach}>
+			<hr />
+			<{if $formmakex.content.buttons.prev}> <input type="submit"
+				name="<{$formmakex.content.buttons.prev.name}>"
+				value="<{$formmakex.content.buttons.prev.label}>" /> <{/if}> <{if
+			$formmakex.content.buttons.next}> <input type="submit"
+				name="<{$formmakex.content.buttons.next.name}>"
+				value="<{$formmakex.content.buttons.next.label}>" /> <{/if}> <{if
+			$formmakex.content.buttons.save}> <input type="submit"
+				name="<{$formmakex.content.buttons.save.name}>"
+				value="<{$formmakex.content.buttons.save.label}>" /> <{/if}> <{if
+			$formmakex.content.buttons.submit}> <input type="submit"
+				name="<{$formmakex.content.buttons.submit.name}>"
+				value="<{$formmakex.content.buttons.submit.label}>" /> <{/if}>
+	</form>
+</div>

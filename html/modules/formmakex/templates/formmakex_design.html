@@ -1,0 +1,52 @@
+<div id="formmakex-tabs-contents-wrap" class="formmakex-contents-wrap">
+	<div class="formmakex-contents-wrap-innr">
+		<div class="formmakex-contents-head">
+			<h1><{$formmakex.content.pagetitle}> -
+				<{$formmakex.content.tab.title}></h1>
+			<div class="formmakex-contents-nav">
+				<div class="formmakex-contents-navl"></div>
+				<div class="formmakex-contents-navr"></div>
+			</div>
+		</div>
+		<div class="formmakex-contents-body">
+
+			<form method="post" action="manage.php" name="phpesp">
+
+				<{foreach from=$formmakex.content.errors item=error name=errors}>
+				<{if $smarty.foreach.errors.first}>
+				<div id="formmakex-tabs-errors">
+					<ul>
+						<{/if}>
+						<li><{$error}></li> <{if $smarty.foreach.errors.last}>
+					</ul>
+				</div>
+				<{/if}> <{/foreach}> <{foreach from=$formmakex.content.hiddens
+				item=hidden name=hiddens}> <input type="hidden"
+					name="<{$hidden.name}>" value="<{$hidden.value}>" /> <{/foreach}>
+
+				<{capture assign=tabNav}> <{foreach from=$formmakex.content.tabNav
+				item=tab}> <input type="submit"
+					class="formmakex-tabs-tabnav-<{$tab.name}> <{if $formmakex.config.currentTab == $tab.name}>formmakex-tabs-tabnav-current<{/if}>"
+					name="<{$tab.name}>" value="<{$tab.title}>" /> <{/foreach}>
+				<{/capture}>
+				<div class="formmakex-tabs-tabnav" id="formmakex-tabs-tabnav-upper"><{$tabNav}></div>
+
+				<{if $formmakex.config.currentTab == "general"}> <{include
+				file="db:formmakex_general.html"}> <{elseif
+				$formmakex.config.currentTab == "questions"}> <{include
+				file="db:formmakex_questions.html"}> <{elseif
+				$formmakex.config.currentTab == "order"}> <{include
+				file="db:formmakex_order.html"}> <{elseif
+				$formmakex.config.currentTab == "preview"}> <{include
+				file="db:formmakex_preview.html"}> <{/if}>
+
+				<div id="formmakex-tabs-guide"><{$formmakex.content.guide}></div>
+
+				<div class="formmakex-tabs-tabnav" id="formmakex-tabs-tabnav-lower"><{$tabNav}></div>
+
+			</form>
+
+		</div>
+		<div class="formmakex-contents-foot"></div>
+	</div>
+</div>

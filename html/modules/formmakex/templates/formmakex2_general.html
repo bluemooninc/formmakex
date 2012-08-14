@@ -1,0 +1,39 @@
+<table id="formmakex-tabs-generalinfos" class="formmakex-tabs-formtable">
+	<tbody>
+		<{foreach from=$formmakex.content.generalInfos item=info name=gInfos}>
+		<tr class="formmakex-tabs-generalinfo">
+			<th class="formmakex-tabs-generalinfo-label"><{$info.label}></th>
+			<td><{if $info.type == 'composition'}> <{foreach
+				from=$info.subInfos item=subInfo key=siKey}>
+				<div class="formmakex-tabs-generalinfo-subinfo">
+					<{if $subInfo.type == 'checkbox'}> <label
+						class="formmakex-tabs-subinfo-label"><{$subInfo.input}><{$subInfo.label}></label>
+					<{else}> <span class="formmakex-tabs-subinfo-label"><{$subInfo.label}></span><{if
+					$subInfo.type == 'textarea'}><br /><{/if}> <{$subInfo.input}>
+					<{/if}> <{if $subInfo.required}> <span
+						class="formmakex-tabs-subinfo-required"><{$formmakex.langs.required}></span>
+					<{if $subInfo.type == 'textarea'}><br /><{/if}> <{/if}> <{if
+					count($subInfo.restrictions)}> <span
+						class="formmakex-tabs-subinfo-restriction"> <{foreach
+						from=$subInfo.restrictions item=restriction}><{$restriction}>
+						<{/foreach}></span> <{if $subInfo.type == 'textarea'}><br /><{/if}>
+					<{/if}> <{if $subInfo.description}>
+					<div class="formmakex-tabs-subinfo-description"><{$subInfo.description}></div>
+					<{/if}> <{if $siKey == 'thanks_url'}><{$formmakex.langs.or}><{/if}>
+				</div> <{/foreach}> <{if $info.description}>
+				<div class="formmakex-tabs-generalinfo-description"><{$info.description}></div><{/if}>
+				<{else}> <{$info.input}> <{if $info.required}> <{if $info.type ==
+				'textarea'}><br /><{/if}> <span
+				class="formmakex-tabs-generalinfo-required"><{$formmakex.langs.required}></span>
+				<{/if}> <{if count($info.restrictions)}> <{if $info.type ==
+				'textarea'}><br /><{/if}> <span
+				class="formmakex-tabs-generalinfo-restriction"> <{foreach
+					from=$info.restrictions item=restriction}><{$restriction}>
+					<{/foreach}></span> <{/if}> <{if $info.description}>
+				<div class="formmakex-tabs-generalinfo-description"><{$info.description}></div><{/if}>
+				<{/if}>
+			</td>
+		</tr>
+		<{/foreach}>
+	</tbody>
+</table>

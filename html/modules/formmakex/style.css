@@ -1,0 +1,576 @@
+
+#bmsrvy-sidepanel{ float: left; width: 23%; }
+#bmsrvy-mainpanel{ float: right; width: 75%; }
+
+/* GENERIC */
+
+.formmakex-contents-wrap{
+	line-height: 1.5;
+}
+.formmakex-contents-wrap h1{
+	font-size: 30px;
+	line-height: 2;
+}
+.formmakex-contents-head{
+	border-bottom: 1px solid #ccc;
+}
+#formmakex-form-contents-wrap{
+	border: 1px solid #ccc;
+	padding: 2em;
+}
+#formmakex-form-contents-wrap .formmakex-contents-head{
+	text-align: center;
+}
+
+/* LIST */
+
+#formmakex-list-simple,
+#formmakex-list-simple li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#formmakex-list-simple{
+	margin: 1em 0;
+}
+#formmakex-list-simple li{
+	padding-bottom: 1ex;
+}
+#formmakex-list-simple .formmakex-list-form-title{
+	font-weight: bold;
+	font-size: 20px;
+}
+
+#formmakex-list,
+#formmakex-list th,
+#formmakex-list td{
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+}
+#formmakex-list{
+	margin: 1em 0;
+}
+#formmakex-list th,
+#formmakex-list td{
+	padding: 1ex;
+	text-align: left;
+	vertical-align: top;
+}
+#formmakex-list ul,
+#formmakex-list ul li{
+	margin: 0;
+	padding: 0;
+}
+#formmakex-list ul li{
+	list-style-type: none;
+}
+#formmakex-list ul li span{
+	margin-right: 1ex;
+	font-weight: bold;
+}
+#formmakex-list button{
+	font-size: 17px;
+}
+
+/* NEW QUESTIONNAIRE */
+#formmakex-form-title{
+	font-size: 32px;
+}
+#formmakex-form-subtitle{
+	padding: 0;
+	font-size: 28px;
+}
+#formmakex-form-infos{
+	margin: 1em 0;
+	border: 1px solid #ccc;
+}
+.formmakex-form-infos{
+	padding: 1ex;
+	border-bottom: 1px solid #ccc;
+}
+#formmakex-form-info{
+	background-color: #ffc;
+}
+#formmakex-form-hasrequired{
+/* mod start 2012/01/08 T2.kuri for #757
+
+	background-color: #fcc;
+
+   mod end   2012/01/08 T2.kuri for #757
+*/
+	font-size: 1.0em;
+}
+.formmakex-form-infos-last{
+	border-width: 0;
+}
+.formmakex-form-notquestion,
+.formmakex-form-question{
+	margin: 1em 0;
+}
+.formmakex-form-question-content{
+	font-weight: bold;
+	margin-bottom: 1em;
+	font-size: 20px;
+}
+.formmakex-form-question-inputs {
+    font-size: 20px;
+    margin-bottom: 1em;
+}
+
+.formmakex-form-question-number{
+	font-size: 24px;
+	margin-right: 1ex;
+}
+.formmakex-form-question-asterisk{
+	margin-right: 1ex;
+	color: #f33;
+}
+.formmakex-form-question-inputs label{
+	margin-right: 1em;
+}
+.formmakex-form-question-inputs button{
+	font-size: 17px;
+}
+.formmakex-form-question-rate-table,
+.formmakex-form-question-rate-table th,
+.formmakex-form-question-rate-table td{
+	border-collapse: collapse;
+	border-width: 0;
+}
+.formmakex-form-question-rate-table th,
+.formmakex-form-question-rate-table td{
+	padding: 1ex;
+	text-align: center;
+}
+.formmakex-form-question-rate-table td label{
+	margin: 0;
+}
+.formmakex-form-question-rate-table thead td,
+.formmakex-form-question-rate-col-label{
+	font-weight: bold;
+}
+.formmakex-form-question-rate-col-1,
+.formmakex-form-question-rate-col-2,
+.formmakex-form-question-rate-col-3,
+.formmakex-form-question-rate-col-4,
+.formmakex-form-question-rate-col-5{
+	
+}
+#formmakex-form-buttons{
+	margin: 1em 0;
+	padding-top: 1em;
+	border-top: 1px solid #ccc;
+	text-align: center;
+}
+
+/* TABS */
+
+#formmakex-tabs-errors{
+	margin: 1em 0;
+	padding: 1ex;
+	border: 1px solid #f33;
+	background-color: #fcc;
+	color: #f33;
+}
+#formmakex-tabs-errors ul,
+#formmakex-tabs-errors ul li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.formmakex-tabs-tabnav{
+	margin: 1em 0;
+}
+.formmakex-tabs-tabnav input{
+	overflow: hidden;
+	width: 19.05%;
+	background-color: #f5f5f5;
+	border: 5px solid #ccc;
+	margin: 0 2px 0 0;
+	padding: 1ex;
+	font-weight: bold;
+	font-size: 1em;
+	color: #666;
+}
+.formmakex-tabs-tabnav input.formmakex-tabs-tabnav-current{
+	background-color: #fff;
+	color: #333;
+}
+#formmakex-tabs-grid,
+#formmakex-tabs-grid td{
+	border-collapse: collapse;
+	border-width: 0;
+}
+#formmakex-tabs-grid td{
+	vertical-align: top;
+}
+
+#formmakex-tabs-questioninfos,
+#formmakex-tabs-choicesinfos{
+	margin: 1em 0;
+}
+
+#formmakex-tabs-contents-wrap .formmakex-tabs-formtable,
+#formmakex-tabs-contents-wrap .formmakex-tabs-formtable th,
+#formmakex-tabs-contents-wrap .formmakex-tabs-formtable td{
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+	text-align: left;
+}
+#formmakex-tabs-contents-wrap .formmakex-tabs-formtable input,
+#formmakex-tabs-contents-wrap .formmakex-tabs-formtable textarea,
+#formmakex-tabs-contents-wrap .formmakex-tabs-formtable select{
+	font-size: inherit;
+}
+#formmakex-tabs-contents-wrap .formmakex-tabs-formtable th,
+#formmakex-tabs-contents-wrap .formmakex-tabs-formtable td{
+	padding: 1ex;
+}
+.formmakex-tabs-subinfo-label{
+	font-weight: bold;
+}
+label.formmakex-tabs-subinfo-label{
+	font-weight: normal;
+}
+.formmakex-tabs-generalinfo-required,
+.formmakex-tabs-generalinfo-restriction,
+.formmakex-tabs-generalinfo-description,
+.formmakex-tabs-subinfo-required,
+.formmakex-tabs-subinfo-restriction,
+.formmakex-tabs-subinfo-description,
+.formmakex-tabs-questioninfos-restriction,
+.formmakex-tabs-questioninfos-description{
+	font-size: 17px;
+}
+.formmakex-tabs-generalinfo-restriction,
+.formmakex-tabs-subinfo-restriction,
+.formmakex-tabs-questioninfos-restriction{
+	margin-right: 3px;
+	border: 1px solid #ff3;
+	background-color: #ffc;
+	color: #666;
+}
+.formmakex-tabs-generalinfo-description,
+.formmakex-tabs-subinfo-description,
+.formmakex-tabs-questioninfos-description{
+	padding: 1ex 0 0;
+	color: #666;
+}
+.formmakex-tabs-generalinfo-required,
+.formmakex-tabs-subinfo-required{
+	margin-right: 3px;
+	border: 1px solid #f33;
+	background-color: #fcc;
+	color: #f33;
+}
+#formmakex-tabs-guide{
+	margin: 1em 0;
+	padding: 1ex;
+	border: 1px solid #36f;
+	background-color: #9cf;
+	color: #03f;
+}
+
+#formmakex-tabs-contents-wrap h2{
+	font-size: 20px;
+}
+#formmakex-tabs-questionnav,
+#formmakex-tabs-questionnav li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#formmakex-tabs-questionnav li{
+	margin-bottom:1ex;
+}
+#formmakex-tabs-questionnav{
+	margin: 1em 1em 1em 0;
+}
+.formmakex-tabs-formtable-button,
+#formmakex-tab-order-addbreak,
+#formmakex-tabs-questionnav input{
+	border: 1px solid #ccc;
+	background-color: #f5f5f5;
+	font-weight: bold;
+	color: #666;
+	padding: .5ex 1ex;
+}
+#formmakex-tabs-contents-wrap .formmakex-tabs-formtable .formmakex-tabs-formtable-button{
+	font-size: 16px;
+}
+#formmakex-tab-order-addbreak{
+	margin-top: 1ex;
+}
+#formmakex-tabs-questionnav .formmakex-tabs-questionnav-field-current input{
+	background-color: #fff;
+	color: #333;
+}
+
+.formmakex-tabs-order-question-content{
+	color: #666;
+	font-size: 16px;
+}
+	border: 1px solid #ccc;
+	background-color: #f5f5f5;
+	margin: 1ex;
+	padding: .5ex 1ex;
+	color: #333;
+}
+
+/* manage.php
+------------------------------------------------------------------------------*/
+#formmakex-manage-formlist,
+#formmakex-manage-formlist th,
+#formmakex-manage-formlist td {
+	padding: 1ex;
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+	font-size: 18px;
+	vertical-align: top;
+}
+#formmakex-manage-formlist {
+	margin: 20px 0;
+}
+#formmakex-manage-formlist th{
+	background-color: #f5f5f5;
+	text-align: left;
+}
+.formmakex-manage-form-title {
+	font-weight: bold;
+}
+td .formmakex-manage-form-title,
+td .formmakex-manage-form-subtitle {
+	display: block;
+}
+.formmakex-manage-form-data {
+	margin: 1ex 0 0;
+	padding: 1ex 0 0;
+	border-top: 1px dotted #ccc;
+}
+.formmakex-manage-form-data li {
+	display: block;
+	width: 47%;
+	float: left;
+	margin: 0 2% 0 0;
+	padding: 0;
+	list-style-type: none;
+	font-size: 16px;
+	color: #333;
+}
+.formmakex-manage-form-data li span {
+	font-weight: bold;
+}
+.formmakex-manage-form-controls{
+	margin: 0;
+	padding: 0;
+}
+.formmakex-manage-form-controls li {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+.formmakex-manage-form-controls li .formmakex-manage-form-control-label {
+	font-weight: bold;
+}
+.formmakex-manage-form-controls form{
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+.formmakex-manage-form-controls button{
+	display: inline;
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+	background: none;
+	color: blue;
+	text-decoration: underline;
+}
+
+
+.formmakex-manage-results-question{
+	font-size: 16px;
+	line-height: 1.5;
+}
+.question-title{
+	margin: 0 0 1em;
+	font-size: 20px;
+	font-weight: bold;
+}
+.question-required{
+	color: #f33;
+	font-size: 180%;
+}
+#formmakex-manage-contents-wrapper table,
+#formmakex-manage-contents-wrapper th,
+#formmakex-manage-contents-wrapper td{
+	border-collapse: collapse;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	vertical-align: top;
+}
+#formmakex-manage-contents-wrapper table{
+	width: 100%;
+	margin-bottom: 1em;
+	font-size: 16px;
+}
+.crosstab-table caption,
+.crosstab-chisquare-table caption{
+	padding: 1ex;
+	font-size: 18px;
+}
+.crosstab-table caption span,
+.crosstab-chisquare-table caption span{
+	font-weight: bold;
+}
+#formmakex-manage-contents-wrapper th{
+	padding: 1ex;
+	text-align: left;
+}
+#formmakex-manage-contents-wrapper thead th{
+	background-color: #dcdcdc;
+}
+#formmakex-manage-contents-wrapper thead th{
+	vertical-align: bottom;
+}
+#formmakex-manage-contents-wrapper td{
+	overflow: hidden;
+	padding: 1ex;
+}
+.question-table th img{
+	display: block;
+	height: 100px;
+	border: 1px solid #ccc;
+}
+#formmakex-manage-contents-wrapper .question-table .question-table-socket{
+	padding: 0;
+}
+#formmakex-manage-contents-wrapper .question-table-socket .question-table{
+	margin: 0;
+}
+#formmakex-manage-contents-wrapper .question-table-socket thead th{
+	background-color: #f5f5f5;
+}
+#formmakex-manage-contents-wrapper tfoot th,
+#formmakex-manage-contents-wrapper tfoot td{
+	background-color: #f5f5f5;
+}
+.question-chart{
+	margin-bottom: 1em;
+	padding: 1ex;
+	border: 1px solid #ccc;
+}
+.chart-builduppercentage{
+	padding: 1ex;
+	line-height: 2;
+}
+.chart-builduppercentage-chart{
+	border-left: 1px solid #ccc;
+}
+.chart-builduppercentage-data{
+	float: left;
+	overflow: hidden;
+	height: 2em;
+	text-align: center;
+	font-weight: bold;
+}
+.chart-builduppercentage-data-na,
+.chart-builduppercentage-data-legend-na .chart-builduppercentage-data-legend-colors,
+.chart-percentagebar-data-na,
+.chart-percentagebar-data-legend-na .chart-percentagebar-data-legend-colors{
+	background-color: #d3d7cf;
+}
+.chart-builduppercentage-data-1,
+.chart-builduppercentage-data-legend-1 .chart-builduppercentage-data-legend-colors,
+.chart-percentagebar-data-1,
+.chart-percentagebar-data-legend-1 .chart-percentagebar-data-legend-colors{
+	background-color: #edd400;
+}
+.chart-builduppercentage-data-2,
+.chart-builduppercentage-data-legend-2 .chart-builduppercentage-data-legend-colors,
+.chart-percentagebar-data-2,
+.chart-percentagebar-data-legend-2 .chart-percentagebar-data-legend-colors{
+	background-color: #f57900;
+}
+.chart-builduppercentage-data-3,
+.chart-builduppercentage-data-legend-3 .chart-builduppercentage-data-legend-colors,
+.chart-percentagebar-data-3,
+.chart-percentagebar-data-legend-3 .chart-percentagebar-data-legend-colors{
+	background-color: #c17d11;
+}
+.chart-builduppercentage-data-4,
+.chart-builduppercentage-data-legend-4 .chart-builduppercentage-data-legend-colors,
+.chart-percentagebar-data-4,
+.chart-percentagebar-data-legend-4 .chart-percentagebar-data-legend-colors{
+	background-color: #73d216;
+}
+.chart-builduppercentage-data-5,
+.chart-builduppercentage-data-legend-5 .chart-builduppercentage-data-legend-colors,
+.chart-percentagebar-data-5,
+.chart-percentagebar-data-legend-5 .chart-percentagebar-data-legend-colors{
+	background-color: #3465a4;
+}
+.chart-builduppercentage-data-6,
+.chart-builduppercentage-data-legend-6 .chart-builduppercentage-data-legend-colors,
+.chart-percentagebar-data-6,
+.chart-percentagebar-data-legend-6 .chart-percentagebar-data-legend-colors{
+	background-color: #75507b;
+}
+.chart-builduppercentage-data-7,
+.chart-builduppercentage-data-legend-7 .chart-builduppercentage-data-legend-colors,
+.chart-percentagebar-data-7,
+.chart-percentagebar-data-legend-7 .chart-percentagebar-data-legend-colors{
+	background-color: #cc0000;
+}
+.chart-builduppercentage-data-0,
+.chart-builduppercentage-data-legend-0 .chart-builduppercentage-data-legend-colors,
+.chart-percentagebar-data-0,
+.chart-percentagebar-data-legend-0 .chart-percentagebar-data-legend-colors{
+	background-color: #555753;
+}
+.chart-builduppercentage-legend{
+	clear: both;
+	padding: 1ex 0 0;
+}
+.chart-builduppercentage-legend ul{
+	margin: 0;
+	padding: 0;
+}
+.chart-builduppercentage-legend li{
+	clear: both;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.chart-builduppercentage-data-legend-colors,
+.chart-percentagebar-data-legend-colors{
+	float: left;
+	display: block;
+	margin: 0.5ex 1ex 1ex 0;
+	border: 1px solid #ccc;
+	width: 1em;
+	height: 1em;
+}
+.formmakex-manage-results-nav{
+	padding-bottom: 1em;
+	text-align: center;
+	font-size: 18px;
+}
+.chart-percentagebars-chart{
+	padding: 1ex 0;
+	border-left: 1px solid #ccc;
+}
+.chart-percentagebar-data{
+	overflow: hidden;
+	height: 1.5em;
+	margin-bottom: .5ex;
+	line-height: 1.5em;
+	text-align: center;
+	font-weight: bold;
+}
+@media screen and (min-width: 480px) and (max-width: 800px){
+.formmakex-contents-wrap{
+	font-size: 18px;
+}
+
+}

@@ -1,0 +1,83 @@
+</form>
+<!--important-->
+
+<table class="formmakex-tabs-formtable">
+	<thead>
+		<tr>
+			<th><{$formmakex.langs.col_name_type}></th>
+			<th nowrap="nowrap"><{$formmakex.langs.col_move}></th>
+			<th><{$formmakex.langs.col_edit}></th>
+			<th><{$formmakex.langs.col_remove}></th>
+		</tr>
+	</thead>
+	<tbody>
+		<{foreach from=$formmakex.content.questions item=question}>
+		<tr>
+			<td>
+				<div class="formmakex-tabs-order-question-name">
+					<{if $question.content}> <span><{$question.name}></span><span>[<{$question.typeName}>]</span>
+					<{else}> <span><{$formmakex.langs.section_break}></span> <{/if}>
+				</div> <{if $question.content}>
+				<div class="formmakex-tabs-order-question-content"><{$question.content|strip_tags}></div><{/if}>
+			</td>
+			<td nowrap="nowrap">
+				<form method="post" action="manage.php">
+					<{foreach from=$formmakex.content.hiddens item=hidden
+					name=hiddens}> <input type="hidden" name="<{$hidden.name}>"
+						value="<{$hidden.value}>" /> <{/foreach}> <input type="hidden"
+						name="tab" value="order" /> <input type="hidden" name="src"
+						value="<{$question.num}>" /> <select name="dst"
+						onchange="this.form.submit();"> <{foreach
+						from=$formmakex.content.questions item=qn name=qn}>
+						<option<{if $smarty.foreach.qn.iteration ==
+							$question.num}> selected="selected"<{/if}>><{$qn.num}></option>
+						<{/foreach}>
+					</select>
+					<script type="text/javascript"></script>
+					<noscript>
+						<input type="submit" value="move"
+							class="formmakex-tabs-formtable-button" />
+					</noscript>
+				</form>
+			</td>
+			<td><{if $question.editq}>
+				<form method="post" action="manage.php">
+					<{foreach from=$formmakex.content.hiddens item=hidden
+					name=hiddens}> <input type="hidden" name="<{$hidden.name}>"
+						value="<{$hidden.value}>" /> <{/foreach}> <input type="hidden"
+						name="tab" value="questions" /> <input type="hidden" name="q"
+						value="<{$question.editq-1}>" /> <input type="submit"
+						value="<{$formmakex.langs.edit_field}>"
+						class="formmakex-tabs-formtable-button" />
+				</form> <{/if}>
+			</td>
+			<td>
+				<form method="post" action="manage.php">
+					<{foreach from=$formmakex.content.hiddens item=hidden
+					name=hiddens}> <input type="hidden" name="<{$hidden.name}>"
+						value="<{$hidden.value}>" /> <{/foreach}> <input type="hidden"
+						name="tab" value="order" /> <input type="hidden" name="src"
+						value="<{$question.num}>" /> <input type="hidden" name="dst"
+						value="-1" /> <input type="submit"
+						value="<{$formmakex.langs.remove_field}>"
+						class="formmakex-tabs-formtable-button" />
+				</form>
+			</td>
+		</tr>
+		<{/foreach}>
+	</tbody>
+</table>
+
+<form method="post" action="manage.php">
+	<!--important-->
+	<{foreach from=$formmakex.content.hiddens item=hidden name=hiddens}><input
+		type="hidden" name="<{$hidden.name}>" value="<{$hidden.value}>" /><{/foreach}>
+	<input type="submit" name="addbreak"
+		value="<{$formmakex.langs.add_section_break}>"
+		id="formmakex-tab-order-addbreak" /> <input type="hidden" name="tab"
+		value="order" />
+</form>
+<form method="post" action="manage.php">
+	<!--important-->
+	<{foreach from=$formmakex.content.hiddens item=hidden name=hiddens}><input
+		type="hidden" name="<{$hidden.name}>" value="<{$hidden.value}>" /><{/foreach}>

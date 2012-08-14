@@ -1,0 +1,92 @@
+<table id="formmakex-tabs-grid">
+	<tbody>
+		<tr>
+			<{* 2011/10/18 S.Uchi start *}>
+			<td>
+				<ul id="formmakex-tabs-questionnav">
+					<h2>
+					<{$formmakex.langs.field_control}>
+					<li><input type="submit" name="save" value="<{$smarty.const._MB_Save}>" /></li>
+					<li><input type="submit" name="addnew" value="<{$formmakex.langs.append_question}>" /></li>
+					</h2>
+					<{foreach from=$formmakex.content.questionNav item=nav}>
+					<li class="<{if $nav.isCurrent}>formmakex-tabs-questionnav-field-current<{/if}>">
+						<input type="submit" name="q" value="<{$nav.num}>" /> <span><{$nav.name}></span>
+						<span>[<{$nav.typeName}>]</span>
+					</li> <{/foreach}>
+
+				</ul>
+
+			</td> <{* 2011/10/18 S.Uchi start *}>
+		</tr>
+		<tr>
+			<{* 2011/10/18 S.Uchi end *}>
+			<td>
+
+				<h2><{$formmakex.langs.question_infos}></h2> <input type="hidden"
+				name="id" value="<{$formmakex.content.currentQuestion.id}>">
+				<table id="formmakex-tabs-questioninfos"
+					class="formmakex-tabs-formtable">
+					<tbody>
+						<tr>
+							<th class="formmakex-tabs-questioninfos-label">
+								<{$formmakex.langs.field_number}>
+							</th>
+							<td>
+							<{if $formmakex.content.currentQuestion.num}>
+								<{$formmakex.content.currentQuestion.num}>
+							<{else}>
+								<{$smarty.const._MB_New_Field}>
+							<{/if}>
+							</td>
+						</tr>
+						<{foreach from=$formmakex.content.currentQuestion.questionInfos item=info}>
+						<tr>
+							<th class="formmakex-tabs-questioninfos-label"><{$info.label}></th>
+							<td><{$info.input}>
+								<{if count($info.restrictions)}>
+									<span class="formmakex-tabs-questioninfos-restriction">
+									<{foreach from=$info.restrictions item=restriction}>
+										<{$restriction}>
+									<{/foreach}>
+								 	</span>
+								 <{/if}>
+							</td>
+						</tr>
+						<{/foreach}>
+						<input type="hidden" name="length" value="" />
+						<input type="hidden" name="precise" value="" />
+					</tbody>
+				</table>
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<h2 id="choicesInfos"><{$formmakex.langs.choices_infos}></h2> <input type="hidden"
+				name="num_choices"
+				value="<{$formmakex.content.currentQuestion.num_choices}>" />
+				<table id="formmakex-tabs-choicesinfos"
+					class="formmakex-tabs-formtable">
+					<tbody>
+						<{foreach from=$formmakex.content.currentQuestion.choicesInfos
+						item=item}>
+						<tr>
+							<th class="formmakex-tabs-questioninfos-label"><{$item.numbered}></th>
+							<td><input type="hidden" name="choice_id_<{$item.numbered}>"
+								value="<{$item.choice_id}>" /> <input type="text" size="60"
+								name="<{$item.name}>" value="<{$item.value}>" /></td>
+						</tr>
+						<{/foreach}>
+						<tr>
+							<th></th>
+							<td><input type="submit" name="extra_choices"
+								value="<{$formmakex.langs.append_choice}>" /></td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="formmakex-tabs-choicesinfos-description"><{$formmakex.langs.choices_description}></div>
+			</td>
+		</tr>
+	</tbody>
+</table>

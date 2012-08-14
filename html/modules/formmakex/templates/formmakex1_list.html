@@ -1,0 +1,96 @@
+<ul id="formmakex-list-simple">
+	<table id="formmakex-list">
+		<tr>
+			<th><span><{$smarty.const._MB_Status}></a></span></th>
+			<th><span><{$smarty.const._MB_LIST_TITLE}></a></span></th> <{if
+			$xoops_isuser && $manage_on}>
+			<th><span><{$smarty.const._MB_LIST_OWNER}></a></span></th> <{/if}>
+			<th><span><{$smarty.const._MB_LIST_UPDATE}></span></th> <{if
+			$xoops_isuser && $manage_on}>
+			<th><span><{$formmakex.langs.form_submitted}></span></th>
+			<th colspan="2"><span><{$smarty.const._MB_Change_Form_Status}></span></th>
+			<th><span><{$formmakex.langs.col_results_respondents}></span></th>
+			<th><span><{$formmakex.langs.col_results_analyze}></span></th>
+			<th><span><{$formmakex.langs.col_results_download}></span></th>
+			<{/if}>
+		</tr>
+		<{foreach item=form from=$formmakex.content.forms name=forms}>
+		<tr class="<{cycle values="even,odd"}>
+			">
+			<td><{if $form.status==0 }> <{$smarty.const._MB_Editing}>
+				<{elseif $form.status==1 }> <{$smarty.const._MB_Active}> <{elseif
+				$form.status==2 }> <{$smarty.const._MB_Ended}> <{elseif
+				$form.status==4 }> <{$smarty.const._MB_Archived}> <{elseif
+				$form.status==8 }> <{$smarty.const._MB_Testing}> <{/if}>
+			<td><b><a href='webform.php?name=<{$form.name}>'
+					target="_top"><{$form.name}> : <{$form.title}></a></b></td> <{if
+			$xoops_isuser && $manage_on}>
+			<td><a href="<{$xoops_url}>/userinfo.php?uid=<{$form.uid}>"
+				taget="_top"><{$form.uname}></a></td> <{/if}>
+			<td><{$form.last_update_m|replace:'-':'/'}></td> <{if $xoops_isuser
+			&& $manage_on}>
+			<td><{if $form.submitted}> <img src="images/checked.png"
+				alt="Checked" /><{$form.submitted|date_format:'%Y/%m/%d %H:%M'}>
+				<{else}> -- <{/if}>
+			</td> <{* Status *}>
+			<!-- STATUS_ACTIVE=1,STATUS_DONE=2,STATUS_DELETED=4,STATUS_TEST=8 -->
+			<td><{* Test *}> <{if $form.status==0 || $form.status==2}> <a
+				href="manage.php?where=status&op=t&sid=<{$form.id}>" target="_top">
+					<img title="<{$smarty.const._MB_Test}>"
+					alt="<{$smarty.const._MB_Test}>" src="./images/icon_test.png"
+					width="16" height="16" />
+			</a> <{/if}> <{* Active *}> <{if $form.status==0}> <a
+				href="manage.php?where=status&op=a&sid=<{$form.id}>" target="_top">
+					<img title="<{$smarty.const._MB_Activate}>"
+					alt="<{$smarty.const._MB_Activate}>" src="./images/icon_public.png"
+					width="16" height="16" />
+			</a> <{/if}> <{if $form.status==2 }> <{* Delete and public again *}> <a
+				href="manage.php?where=status&op=r&sid=<{$form.id}>" target="_top">
+					<img title="<{$smarty.const._MB_Activate}>"
+					alt="<{$smarty.const._MB_Activate}>" src="./images/icon_public.png"
+					width="16" height="16" />
+			</a> <{/if}> <{* Stop *}> <{if $form.status!=2}> <a
+				href="manage.php?where=status&op=e&sid=<{$form.id}>" target="_top">
+					<img title="<{$smarty.const._MB_End}>"
+					alt="<{$smarty.const._MB_End}>" src="./images/icon_stop.png"
+					width="16" height="16" />
+			</a> <{/if}> <{* Archive *}> <{if $form.status==2}> <a
+				href="manage.php?where=status&op=d&sid=<{$form.id}>" target="_top">
+					<img title="<{$smarty.const._MB_Archive}>"
+					alt="<{$smarty.const._MB_Archive}>" src="./images/icon_stock.png"
+					width="16" height="16" />
+			</a> <{/if}>
+			</td>
+			<td><{if $form.status!=4 }> <{* Edit *}> <a
+				href="manage.php?where=tab&newid=<{$form.id}>" target="_top"> <img
+					title="<{$formmakex.langs.col_control_edit}>"
+					alt="<{$formmakex.langs.col_control_edit}>"
+					src="./images/icon_edit.png" width="16" height="16" /></a> <{/if}> <{*
+				Copy *}> <a href="manage.php?where=copy&sid=<{$form.id}>"
+				target="_top"> <img
+					title="<{$formmakex.langs.col_control_copy}>"
+					alt="<{$formmakex.langs.col_control_copy}>"
+					src="./images/icon_copy.png" width="16" height="16" /></a> <{if
+				$form.status==4 }> <a href="manage.php?where=purge&sid=<{$form.id}>"
+				target="_top"> <img
+					title="<{$smarty.const._AM_FORMMAKEX_PURGE}>"
+					alt="<{$smarty.const._AM_FORMMAKEX_PURGE}>"
+					src="./images/icon_purge.png" width="16" height="16" /></a> <{* Delete
+				*}> <{/if}>
+			</td>
+			<td><{$form.resp}></td>
+			<td><a href="manage.php?where=results&sid=<{$form.id}>"
+				target="_top"><{$formmakex.langs.col_results_spreadsheet}></a></td>
+			<td><a
+				href="manage.php?where=download&type=csv&sid=<{$form.id}>"
+				target="_blank">CSV</a></td> <{/if}>
+			<!--
+			<form action="index.php" method="post">
+			<input type="hidden" name="sid" value="<{$form.id}>" />
+			<button type="submit"><{$smarty.const._MD_FORMMAKEX_DETAIL}></button>
+			</form>
+-->
+		</tr>
+		<{/foreach}>
+	</table>
+</ul>

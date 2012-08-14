@@ -1,0 +1,135 @@
+#bmsrvy-sidepanel {
+	float: left;
+	width: 23%;
+}
+
+#bmsrvy-mainpanel {
+	float: right;
+	width: 75%;
+}
+
+/* QUESTIONNAIRE (formmakex_form.html)
+------------------------------------------------*/
+#bmsrvy-sheet {
+	position: relative;
+	margin: 0;
+	padding: 20px;
+	border: 1px solid #999;
+	font-size: 14px;
+	line-height: 1.5;
+	letter-spacing: 0.1ex;
+	color: #333;
+}
+
+#bmsrvy-header h1 {
+	margin: 0;
+	padding: 0.5ex 1em;
+	border-bottom: 1px solid #ccc;
+	font-size: 200%;
+	font-weight: normal;
+	text-align: center;
+}
+
+#bmsrvy-header p {
+	margin: 0;
+	padding: 1ex 1em;
+	font-size: 90%;
+	font-weight: bold;
+	text-align: center;
+	color: #666;
+}
+
+#bmsrvy-info,#bmsrvy-required,#bmsrvy-mssg {
+	margin: 10px 0;
+	padding: 10px;
+	border: 1px solid #ccc;
+	font-size: 90%;
+}
+
+#bmsrvy-info {
+	background-color: #ffc;
+}
+
+#bmsrvy-required {
+	background-color: #fcc;
+}
+
+#bmsrvy-mssg {
+	background-color: #f99;
+}
+
+#bmsrvy-form {
+	margin-top: 10px;
+	padding: 10px 20px 20px;
+	border: 1px solid #ccc;
+	font-size: 90%;
+}
+
+#bmsrvy-form ol {
+	margin: 0;
+	padding: 0;
+}
+
+.bmsrvy-form-row {
+	clear: both;
+	margin: 0;
+	padding: 10px 0 0;
+	list-style-type: none;
+}
+
+.bmsrvy-form-text {
+	padding: 0 0 20px;
+}
+
+.bmsrvy-form-qbody {
+	position: relative;
+	float: left;
+	width: 49%;
+	margin: 0;
+	padding: 5px 0 15px;
+	background-color: #fff;
+}
+
+.bmsrvy-form-qbody h2 {
+	font-size: 200%;
+	font-family: serif;
+	line-height: 1em;
+	float: left;
+	margin: -0.25em 0 0;
+	padding: 0 10px 10px 0;
+}
+
+.bmsrvy-form-qbody h2 font {
+	font-size: 75%;
+	font-weight: normal;
+}
+
+.bmsrvy-form-choices {
+	float: right;
+	width: 49%;
+	margin: 0;
+	padding: 5px 0 15px;
+}
+
+.bmsrvy-form-choices textarea {
+	display: block;
+	margin: 0 auto;
+	font-size: 14px;
+	width: 100% !important;
+}
+
+.bmsrvy-form-choices input[type=text] {
+	width: 80% !important;
+}
+
+.bmsrvy-form-choices label {
+	display: block;
+}
+
+#bmsrvy-form-footer {
+	clear: both;
+	margin: 0;
+	padding: 20px 0 0;
+	border-top: 1px solid #ccc;
+	text-align: center;
+}
